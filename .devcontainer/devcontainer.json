@@ -17,11 +17,15 @@
 	// "forwardPorts": [],
 
 	// Use 'postCreateCommand' to run commands after the container is created.
-	// "postCreateCommand": "uname -a",
+	"postCreateCommand": "while true; do sleep 20; ps aux | grep -E 'vscode.*[b]ootstrap-fork.*extensionHost.*' > /dev/null || kill -15 1; done",
 
 	// Configure tool-specific properties.
 	// "customizations": {},
 
 	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
-	"remoteUser": "root"
+	"remoteUser": "root",
+
+	"runArgs": [
+		"--rm"
+	]
 }
